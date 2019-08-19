@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const parkingLot = new ParkingLot();
+    const parkingLot = new ParkingLot(function (from, to) {
+        const time = (to - from) / 1000;
+        return 10 * (Math.floor(time/15) + 1);
+    });
 
     const checkin = document.getElementById('entrance-gate');
     const checkout = document.getElementById('exit-gate');
