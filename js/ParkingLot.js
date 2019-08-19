@@ -6,6 +6,7 @@ function openGate(gate) {
 class ParkingLot {
     checkedInCars = {};
 
+
     entranceGate = document.getElementById('entrance-gate');
     exitGate = document.getElementById('exit-gate');
 
@@ -13,16 +14,18 @@ class ParkingLot {
         if (this.checkedInCars[licensePlate] != undefined) {
             throw new Error(`${licensePlate} holder allerede på pladsen!`);
         } else {
-            this.checkedInCars[licensePlate] = "CHECKED IN";
+            this.checkedInCars[licensePlate] = new Date();
             openGate(this.entranceGate);
         }
     }
 
     checkout(licensePlate) {
-        if (this.checkedInCars[licensePlate] != 'CHECKED IN') {
+        const checkinTime = this.checkedInCars[licensePlate];
+        if (checkinTime == undefined || checkinTime.constructor != Date) {
             throw new Error(`${licensePlate} holder ikke på pladsen!`);
         } else {
-            this.checkedInCars[licensePlate] = 40;
+            const time = Math.round((new Date() - checkinTime) / 1000);
+            this.checkedInCars[licensePlate] = 15 * (Math.floor(time / 15) + 1);
             return this.checkedInCars[licensePlate];
         }
     }

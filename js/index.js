@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     checkin.addEventListener('click', () => {
         try {
             const licensePlate = prompt('Nummerplade?');
-            parkingLot.checkin(licensePlate);
+            if (licensePlate) {
+                parkingLot.checkin(licensePlate);
+            }
         } catch (e) {
             alert(e.message);
         }
@@ -22,7 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
             var exchange = undefined;
             var paid = 0;
             while (typeof(exchange) != 'number') {
-                const amount = parseInt(prompt(`Betal ${price} DKK. Betalt: ${paid} DKK.`));
+                const inp = prompt(`Betal ${price} DKK. Betalt: ${paid} DKK.`)
+                const amount = parseInt(inp) || 0;
                 paid += amount;
                 exchange = parkingLot.pay(licensePlate, amount);
             }
