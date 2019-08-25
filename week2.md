@@ -179,3 +179,4 @@ new ParkingLot(function (checkinTime, checkoutTime) {
   * eller prøv git fetch upstream <!-- .element: class="fragment" --> 
 * Omskriv til Strategy Pattern <!-- .element: class="fragment" --> 
 * Hint: se slides på Lectio <!-- .element: class="fragment" --> 
+
