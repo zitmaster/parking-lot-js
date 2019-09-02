@@ -52,6 +52,8 @@ class ParkingLot {
                     price = 20 * (Math.floor(time/15) + 1);
                 }
             }*/
+            price = this.calculatePrice(checkinTime, checkoutTime);
+
             this.checkedInCars[licensePlate] = price;
             return this.checkedInCars[licensePlate];
         }
