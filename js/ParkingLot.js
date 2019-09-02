@@ -9,6 +9,10 @@ class ParkingLot {
     entranceGate = document.getElementById('entrance-gate');
     exitGate = document.getElementById('exit-gate');
 
+    getDescription() {
+        return "Ingen beskrivelse endnu";
+    }
+
     checkin(licensePlate) {
         if (this.checkedInCars[licensePlate] != undefined) {
             throw new Error(`${licensePlate} holder allerede på pladsen!`);

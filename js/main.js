@@ -16,6 +16,7 @@ function main(parkingLot) {
 
     checkout.addEventListener('click', () => {
         try {
+            alert(parkingLot.getDescription());
             const licensePlate = prompt('Nummerplade?');
             const price = parkingLot.checkout(licensePlate);
 
