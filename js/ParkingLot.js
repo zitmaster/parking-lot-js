@@ -9,8 +9,10 @@ class ParkingLot {
     entranceGate = document.getElementById('entrance-gate');
     exitGate = document.getElementById('exit-gate');
 
-    getDescription() {
-        return "Ingen beskrivelse endnu";
+    constructor(shopStrategy){
+        this.shopStrategy = shopStrategy;
+        this.calculatePrice = shopStrategy.calculatePrice;
+        this.getDescription = shopStrategy.getDescription;
     }
 
     checkin(licensePlate) {
@@ -30,7 +32,7 @@ class ParkingLot {
             const checkoutTime = new Date();
 
             let price = 0;
-            if (SYSTEM == 'føtex') {
+            /*if (SYSTEM == 'føtex') {
                 // Det koster 15 kr pr pågebyndt kvarter (15s) hos føtex
                 const time = (checkoutTime - checkinTime) / 1000;
 
@@ -49,7 +51,7 @@ class ParkingLot {
                 } else {
                     price = 20 * (Math.floor(time/15) + 1);
                 }
-            }
+            }*/
             this.checkedInCars[licensePlate] = price;
             return this.checkedInCars[licensePlate];
         }
