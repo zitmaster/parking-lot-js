@@ -12,5 +12,7 @@ class KinaPriceStrategy {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    main(new ParkingLot(new KinaPriceStrategy()));
+    new ParkingLot(new KinaPriceStrategy());
+    new Monitor(parkingLot);
+    main(parkingLot);
 });
